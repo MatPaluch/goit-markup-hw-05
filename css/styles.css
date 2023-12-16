@@ -109,12 +109,38 @@ body {
   font-weight: 500;
   color: var(--NAVY-BLUE);
   padding: 24px 0;
+  position: relative;
 }
 .list-link:hover,
 .list-link:focus {
   color: var(--OCEAN);
+}
+.selected::after {
+  content: "";
   border-radius: 2px;
-  border-bottom: 4px solid var(--OCEAN, #404bbf);
+  margin-top: 28px;
+  background: var(--OCEAN, #404bbf);
+  width: 100%;
+  height: 4px;
+  display: flex;
+  position: absolute;
+  opacity: 0;
+  transition: margin-top 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.selected:hover::after {
+  opacity: 1;
+  margin-top: 21px;
+}
+.current::before {
+  content: "";
+  border-radius: 2px;
+  top: 67px;
+  background: var(--OCEAN, #404bbf);
+  width: 100%;
+  height: 4px;
+  display: flex;
+  position: absolute;
 }
 
 .address {
@@ -404,6 +430,51 @@ body {
   background-color: var(--GREEN, #31d0aa);
 }
 
+.back-drop {
+  cursor: not-allowed;
+  display: flex;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.modal-box {
+  margin: auto;
+  padding: 24px;
+  width: 408px;
+  height: 584px;
+  border-radius: 4px;
+  background: var(--DAIRY, #fcfcfc);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  cursor: auto;
+  display: flex;
+  justify-content: end;
+}
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--CORNFLOWER);
+  border-radius: 50%;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+.close-button:hover {
+  border: var(--OCEAN);
+  background-color: var(--OCEAN);
+}
+.colorfill {
+  fill: var(--WHITE);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: all;
+}
 /*------------ Portfolio ------------*/
 .section-container {
   padding-top: 96px;
@@ -453,11 +524,31 @@ body {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
+.img-text {
+  padding: 40px 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--IRIS, #4d5ae5);
+  color: var(--CLOUD, #f4f4fd);
 
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.shadow-list:hover .img-text {
+  transform: translateY(0);
+}
 .image-description {
   padding: 32px 16px;
   border: 1px solid var(--CORNFLOWER);
   border-top: none;
+  background-color: var(--WHITE);
 }
 
 .header-second-portfolio {
