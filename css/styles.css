@@ -127,7 +127,7 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -1px;
+  bottom: -4px;
   height: 4px;
   width: 100%;
   background-color: var(--OCEAN);
@@ -319,7 +319,7 @@ body {
   align-items: center;
   gap: 24px;
 }
-.member-social-element {
+.social-element {
   width: 40px;
   height: 40px;
 }
@@ -405,10 +405,7 @@ body {
   display: flex;
   gap: 16px;
 }
-.footer-element-list {
-  height: 40px;
-  width: 40px;
-}
+
 .icon-svg {
   fill: var(--CLOUD, #f4f4fd);
 }
